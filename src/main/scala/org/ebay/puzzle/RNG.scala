@@ -19,7 +19,7 @@ object RNG {
   /**
    * Simple implementation of RNG.
    *
-   * @constructor creates simple RNG with seed.
+   * @constructor Creates simple RNG with seed.
    * @param seed the seed.
    */
   case class SimpleRNG(seed: Long) extends RNG {

@@ -51,7 +51,7 @@ case object ErrorStatus extends GameStatus
 /**
  * Represents a player in the game.
  *
- * @constructor creates a new player.
+ * @constructor Creates a new player.
  */
 abstract class Player {
   private[puzzle] var _choice: Choice = NoChoice
@@ -100,7 +100,7 @@ abstract class Player {
 /**
  * Human player.
  *
- * @constructor creates a new human player.
+ * @constructor Creates a new human player.
  */
 class Human extends Player {
   override def choose(choice: Choice): Player = {
@@ -115,7 +115,7 @@ class Human extends Player {
 /**
  * Computer player.
  *
- * @constructor creates a new computer player.
+ * @constructor Creates a new computer player.
  */
 class Computer extends Player {
   override def choose(choice: Choice): Player =
