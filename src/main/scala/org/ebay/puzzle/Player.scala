@@ -50,6 +50,8 @@ case object ErrorStatus extends GameStatus
 
 /**
  * Represents a player in the game.
+ *
+ * @constructor creates a new player.
  */
 abstract class Player {
   private[puzzle] var _choice: Choice = NoChoice
@@ -100,7 +102,7 @@ abstract class Player {
  *
  * @constructor creates a new human player.
  */
-private class Human extends Player {
+class Human extends Player {
   override def choose(choice: Choice): Player = {
     _choice = choice
     this
@@ -115,7 +117,7 @@ private class Human extends Player {
  *
  * @constructor creates a new computer player.
  */
-private class Computer extends Player {
+class Computer extends Player {
   override def choose(choice: Choice): Player =
     throw new UnsupportedOperationException("Computer cannot make a choice like humans")
 
