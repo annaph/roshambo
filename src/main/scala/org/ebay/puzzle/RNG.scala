@@ -2,7 +2,7 @@ package org.ebay.puzzle
 
 import scala.math.abs
 
-/** Simple Random Number Generator as state object  */
+/** Simple Random Number Generator as state object.*/
 trait RNG {
 
   /**
@@ -32,11 +32,11 @@ object RNG {
     }
   }
 
-  /** Holds current state in application. */
+  /** Holds current RNG state in application.*/
   implicit var state: RNG = SimpleRNG(System.currentTimeMillis())
 
   /**
-   * Generates next random integer inside given interval (a, b). Also returns new state.
+   * Generates next random integer between given interval (a, b). Also, returns new state.
    *
    * @param a start of the interval.
    * @param b end of the interval.

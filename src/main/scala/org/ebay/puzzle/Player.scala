@@ -16,7 +16,7 @@ sealed trait Choice
 /** Represents rock choice in the game. */
 case object Rock extends Choice
 
-/** Represents paper choice in the game. */
+/** Represents scissors choice in the game. */
 case object Scissors extends Choice
 
 /** Represents paper choice in the game. */
@@ -50,7 +50,6 @@ case object ErrorStatus extends GameStatus
 
 /**
  * Represents a player in the game.
- *
  */
 abstract class Player {
   private[puzzle] var _choice: Choice = NoChoice
@@ -63,7 +62,7 @@ abstract class Player {
   def choice: Choice = _choice
 
   /**
-   * Sets player choice.
+   * Sets player's choice.
    *
    * @param choice the choice to set.
    * @return this player.
@@ -71,7 +70,7 @@ abstract class Player {
   def choose(choice: Choice): Player
 
   /**
-   * Sets player choice randomly.
+   * Sets player's choice randomly.
    *
    * @return this player.
    */
@@ -97,7 +96,7 @@ abstract class Player {
 }
 
 /**
- * Human player
+ * Human player.
  *
  * @constructor creates a new human player.
  */
@@ -107,12 +106,12 @@ private class Human extends Player {
     this
   }
 
-  def chooseRandomly(): Player =
+  override def chooseRandomly(): Player =
     throw new UnsupportedOperationException("Human must make a choice by himself")
 }
 
 /**
- * Computer player
+ * Computer player.
  *
  * @constructor creates a new computer player.
  */
@@ -120,7 +119,7 @@ private class Computer extends Player {
   override def choose(choice: Choice): Player =
     throw new UnsupportedOperationException("Computer cannot make a choice like humans")
 
-  def chooseRandomly(): Player = {
+  override def chooseRandomly(): Player = {
     RNG.choose(1, 3)._1 match {
       case 1 =>
         _choice = Paper

@@ -8,7 +8,7 @@ import scalaz.effect.IO.putStr
 import scalaz.effect.IO.putStrLn
 import scalaz.effect.IO.readLn
 
-/** Factory for running UI.*/
+/** Factory for running simple UI.*/
 object SimpleUI {
   import Messages._
 
@@ -122,7 +122,7 @@ object SimpleUI {
       IO { false }
     }
 
-  /** Factory that provides UI test messages.*/
+  /** Factory that provides UI text messages.*/
   object Messages {
     val helpString: String = """
   | The Amazing Rock–paper–scissors, v1.0.0
@@ -155,4 +155,3 @@ object SimpleUI {
     val goodbyeMsg = "Thanks for playing\n"
   }
 }
-
