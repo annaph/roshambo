@@ -11,7 +11,7 @@ Pre-requirements to successfully compile and run coding puzzle are:
 
 ### Usage
 For compiling, running unit tests and packaging Lightbend Activator can be used. Activator launcher and executable scripts are included in the project in _bin/_ and _libexec/_ locations.
-If on Linux machine, make sure Activator script has sufficent permissions to be run:
+If on Linux machine, make sure Activator script has sufficient permissions to be run:
 ```sh
 $ chmod 777 bin/activator
 ```
@@ -48,7 +48,7 @@ Windows:
 > bin\activator.bat run
 ```
 
-##### Create installation zip file
+##### Create installation _zip_ file
 Linux:
 ```sh
 $ bin/activator universal:packageBin
@@ -57,7 +57,7 @@ Windows:
 ```bat
 > bin\activator.bat universal:PackageBin
 ```
-Upon completion installation zip file _roshambo_1.0.0.zip_ can be found in _target/universal_ folder. Also, api doc is generated and can be found in _target/scala-2.12/api_ folder.
+Upon completion installation zip file _roshambo_1.0.0.zip_ can be found in _target/universal_ folder. Also, API docs are generated during this process.
 
 ##### Install
 Installation consists of extracting previously generated installation zip file _roshambo_1.0.0.zip_.
@@ -75,6 +75,9 @@ Windows:
 > roshambo.bat
 ```
 
+#### API Docs
+Roshambo API docs can be found in _target/scala-2.12/api_ folder. Open _index.html_ in your favourite browser.
+
 ##### Create Eclipse project files
 Linux:
 ```sh
@@ -86,3 +89,18 @@ Windows:
 ```
 Make sure Eclipse is using Scala 2.12.2 version and Eclipse project output folder is changed from _bin/_ to _classes/_!
 If project output folder is not changed Eclipse could by accident delete Activator scripts located in _bin/_ folder. In that case re-download scripts from GitHub repository.
+
+### Docker image
+Requirement for creating and publishing Docker image is having the docker console client, version 1.3 or higher, installed. SBT Native Packager doesn’t use the REST API, but instead uses the CLI directly.
+Linux:
+```sh
+$ bin/activator docker:publishLocal
+```
+Windows:
+```bat
+> bin\activator.bat docker:publishLocal
+```
+Run a command in a new container:
+```sh
+docker run -a stdin -a stdout -i -t roshambo:1.0.0
+```
