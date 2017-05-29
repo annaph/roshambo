@@ -8,9 +8,13 @@ import scalaz.effect.IO.putStr
 import scalaz.effect.IO.putStrLn
 import scalaz.effect.IO.readLn
 
+/** Factory for running UI.*/
 object SimpleUI {
   import Messages._
 
+  /**
+   * Creates and runs simple console UI.
+   */
   def runUI(): Unit =
     createUI.unsafePerformIO()
 
@@ -117,10 +121,10 @@ object SimpleUI {
     } else {
       IO { false }
     }
-}
 
-object Messages {
-  val helpString: String = """
+  /** Factory that provides UI test messages.*/
+  object Messages {
+    val helpString: String = """
   | The Amazing Rock–paper–scissors, v1.0.0
   | 1 - play Human vs Computer
   | 2 - play Computer vs Computer
@@ -134,19 +138,21 @@ object Messages {
   | Choose game type (1 or 2) or (q)uit:
   """.trim.stripMargin
 
-  val chooseGameType = "Choose game type (1 or 2) or (q)uit"
-  val computer1VsComputer2 = "Computer 1 vs Computer 2:"
-  val humanVsComputer = "Human vs Computer:"
-  val computer1Choice = "Computer 1 choice: "
-  val computer2Choice = "Computer 2 choice: "
-  val humanChoice = "Your choice: "
-  val computerChoice = "Computer choice: "
-  val computer1Won = "Computer 1 won"
-  val computer2Won = "Computer 2 won"
-  val humanWon = "You won"
-  val computerWon = "Computer won"
-  val tie = "It's a tie"
-  val errorMsg = "Error occurred while playing game! Check your choice"
-  val enterChoice = "Enter you choice: "
-  val goodbyeMsg = "Thanks for playing\n"
+    val chooseGameType = "Choose game type (1 or 2) or (q)uit"
+    val computer1VsComputer2 = "Computer 1 vs Computer 2:"
+    val humanVsComputer = "Human vs Computer:"
+    val computer1Choice = "Computer 1 choice: "
+    val computer2Choice = "Computer 2 choice: "
+    val humanChoice = "Your choice: "
+    val computerChoice = "Computer choice: "
+    val computer1Won = "Computer 1 won"
+    val computer2Won = "Computer 2 won"
+    val humanWon = "You won"
+    val computerWon = "Computer won"
+    val tie = "It's a tie"
+    val errorMsg = "Error occurred while playing game! Check your choice"
+    val enterChoice = "Enter you choice: "
+    val goodbyeMsg = "Thanks for playing\n"
+  }
 }
+

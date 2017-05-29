@@ -10,6 +10,9 @@ import org.scalatest.junit.JUnitRunner
 
 import SimpleUI.runUI
 
+/**
+ * Test suite for [[SimpleUI]] singleton object.
+ */
 @RunWith(classOf[JUnitRunner])
 class SimpleUISuite extends FunSpecLike with Matchers {
 
@@ -56,7 +59,7 @@ class SimpleUISuite extends FunSpecLike with Matchers {
       outputString should include regex """[[You|Computer] won] | It's a tie"""
     }
 
-    it("should show game between Human and Computer and then between 2 Computers after selecting game types '1' and '2'") {
+    it("should show game between Human and Computer and then between 2 Computers after selecting game types '1' and then '2'") {
       val output = new ByteArrayOutputStream()
       Console.withIn(new StringReader("1\np\n2\nq")) {
         Console.withOut(output) {

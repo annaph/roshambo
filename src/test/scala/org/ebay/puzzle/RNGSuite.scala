@@ -12,6 +12,9 @@ import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.prop.Checkers
 
+/**
+ * Test suite for [[RNG]] instances and companion object.
+ */
 @RunWith(classOf[JUnitRunner])
 class RNGSuite extends FunSuite with Checkers {
 

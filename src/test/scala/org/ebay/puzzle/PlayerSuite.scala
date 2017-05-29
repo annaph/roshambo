@@ -7,8 +7,11 @@ import org.scalatest.junit.JUnitRunner
 import Player.Computer
 import Player.Human
 
+/**
+ * Test suite for [[Player]] instances and companion object.
+ */
 @RunWith(classOf[JUnitRunner])
-class GameSuite extends FunSuite {
+class PlayerSuite extends FunSuite {
 
   trait GameFixture1 {
     val player1 = Human
@@ -125,6 +128,18 @@ class GameSuite extends FunSuite {
       val actualGameStatus = player1 vs player2
 
       assert(actualGameStatus === expectedGameStatus, "It should be a tie")
+    }
+  }
+
+  test("Invalid choice vs Paper") {
+    new GameFixture1 {
+      player1 choose NoChoice
+      player2 choose Paper
+
+      val expectedGameStatus = ErrorStatus
+      val actualGameStatus = player1 vs player2
+
+      assert(actualGameStatus === expectedGameStatus, "Game should finish with error status")
     }
   }
 

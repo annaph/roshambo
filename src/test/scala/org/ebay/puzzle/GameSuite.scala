@@ -11,8 +11,11 @@ import org.scalatest.prop.Checkers
 import Game.runComputerVsComputer
 import Game.runHumanVsComputer
 
+/**
+ * Test suit for [[Game]] singleton object.
+ */
 @RunWith(classOf[JUnitRunner])
-class GameActionsSuite extends FunSuite with Checkers {
+class GameSuite extends FunSuite with Checkers {
 
   implicit val genChoice: Gen[Choice] = Gen.frequency(
     (3, Rock),
