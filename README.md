@@ -55,7 +55,7 @@ $ bin/activator universal:packageBin
 ```
 Windows:
 ```bat
-> bin\activator.bat universal:PackageBin
+> bin\activator.bat universal:packageBin
 ```
 Upon completion installation zip file _roshambo_1.0.0.zip_ can be found in _target/universal_ folder. Also, API docs are generated during this process.
 
@@ -64,6 +64,7 @@ Installation consists of extracting previously generated installation zip file _
 
 ##### Run
 Goto _roshambo-1.0.0_ installation folder and run commands bellow.
+
 Linux:
 ```sh
 $ cd roshambo-1.0.0/bin
@@ -92,6 +93,7 @@ If project output folder is not changed Eclipse could by accident delete Activat
 
 ### Docker image
 Requirement for creating and publishing Docker image is having the docker console client, version 1.3 or higher, installed. SBT Native Packager doesn’t use the REST API, but instead uses the CLI directly.
+
 Linux:
 ```sh
 $ bin/activator docker:publishLocal
